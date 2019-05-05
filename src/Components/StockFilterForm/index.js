@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import Context from "../../context";
-import { dateToStr, strToToDate } from "../../Services/utils";
+import Context from "../../Services/context";
+import { dateToStr, strToDate } from "../../Services/utils";
 import Select from "../Select";
 import "./index.css";
 
@@ -21,8 +21,8 @@ function StockFilterForm() {
   function handleSubmit(e) {
     e.preventDefault();
     getStocks(
-      strToToDate(startDate),
-      strToToDate(endDate),
+      strToDate(startDate),
+      strToDate(endDate),
       stockSymbol,
       socialMediaType
     );

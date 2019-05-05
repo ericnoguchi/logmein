@@ -2,7 +2,7 @@ export function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-export function strToToDate(str) {
+export function strToDate(str) {
   if (!str) {
     return new Date();
   }

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Context from "../../context";
+import Context from "../../Services/context";
 import StockItem from "../StockItem";
 import "./index.css";
 

@@ -1,26 +1,37 @@
+import { getSocialMediaInfo, getStocks } from "./api";
 import {
-  socialMediaCountGenerator,
-  stockPriceGenerator,
-  recommendationAlgorithm
-} from "./api";
+  getSocialMediaInfoMockEndPoint,
+  getStocksMockEndPoint
+} from "./backendMock";
 
-describe("socialMediaCountGenerator()", () => {});
+jest.mock("./backendMock");
 
-describe("stockPriceGenerator()", () => {
-  it("should generate stock prices", () => {
-    const startDate = new Date("2019-01-01");
-    const endDate = new Date("2019-01-02");
-    expect(stockPriceGenerator("Smb", startDate, endDate))
-      .toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "date": "2019-01-01T00:00:00.000Z",
-          "price": 77,
-          "stockSymbol": "Smb",
-        },
-      ]
-    `);
+getSocialMediaInfoMockEndPoint.mockImplementation(
+  () => "resolveSocialMediaInfoMockEndPoint"
+);
+getStocksMockEndPoint.mockImplementation(() => "resolveStocksMockEndPoint");
+
+describe("getSocialMediaInfo()", () => {
+  it("should return a promise which resolve data", () => {
+    return expect(getSocialMediaInfo()).resolves.toBe(
+      "resolveSocialMediaInfoMockEndPoint"
+    );
   });
 });
 
-describe("recommendationAlgorithm()", () => {});
+// Async/Await demo
+describe("getStocks()", () => {
+  it("should return a promise which resolve data for params", async () => {
+    expect.assertions(2);
+    const data = await getStocks(
+      "startDate",
+      "endDate",
+      "stockSymbol",
+      "socialMedia"
+    );
+    expect(getStocksMockEndPoint).toHaveBeenCalledWith(
+      '{"startDate":"startDate","endDate":"endDate","filterStockSymbol":"stockSymbol","filterSocialMedia":"socialMedia"}'
+    );
+    expect(data).toEqual("resolveStocksMockEndPoint");
+  });
+});
