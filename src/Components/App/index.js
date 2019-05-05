@@ -8,6 +8,7 @@ import "./index.css";
 import StockList from "../StockList";
 import { Provider } from "../../context";
 import StockFilterForm from "../StockFilterForm";
+import Header from "../Header";
 
 const api = {
   getStocks: (startDate, endDate, filterStockSymbol, filterSocialMedia) => {
@@ -63,7 +64,9 @@ function App() {
 
   return (
     <Provider value={store}>
-      <StockFilterForm />
+      <Header>
+        <StockFilterForm />
+      </Header>
       <StockList />
     </Provider>
   );

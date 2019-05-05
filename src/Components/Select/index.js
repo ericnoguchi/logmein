@@ -2,7 +2,11 @@ import React from "react";
 
 function Select(props) {
   return (
-    <select value={props.value} onChange={props.onChange}>
+    <select
+      className={props.className}
+      value={props.value}
+      onChange={props.onChange}
+    >
       <option key="empty" value="">
         -- select --
       </option>

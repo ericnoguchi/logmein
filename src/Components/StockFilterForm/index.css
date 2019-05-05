@@ -1,5 +1,4 @@
 .stock-filter-form {
-  height: 40px;
   display: flex;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -7,8 +6,20 @@
   margin: auto;
 }
 
-.stock-filter-form input,
-.stock-filter-form select {
-  flex: 1;
+.stock-filter-form__control {
+  font-size: 15px;
   margin-right: 5px;
+  flex: 1;
+  border: 0;
+  border-radius: 3px;
+}
+
+.stock-filter-form__control--button {
+  background-color: #ebebeb;
+  color: black;
+  transition: all 0.5s;
+}
+.stock-filter-form__control--button:hover {
+  color: white;
+  background-color: rgb(46, 56, 59);
 }

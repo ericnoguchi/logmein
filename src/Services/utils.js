@@ -3,8 +3,6 @@ export function getRandomInt(max) {
 }
 
 export function strToToDate(str) {
-  console.log("TCL: strToToDate -> str", str);
-
   if (!str) {
     return new Date();
   }

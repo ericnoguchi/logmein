@@ -31,6 +31,7 @@ function StockFilterForm() {
   return (
     <form className="stock-filter-form" onSubmit={handleSubmit}>
       <Select
+        className="stock-filter-form__control"
         collection={stockSymbols}
         valueProp="symbol"
         titleProp="title"
@@ -39,6 +40,7 @@ function StockFilterForm() {
       />
 
       <Select
+        className="stock-filter-form__control"
         collection={socialMediaInfo}
         valueProp="id"
         titleProp="title"
@@ -47,16 +49,20 @@ function StockFilterForm() {
       />
 
       <input
+        className="stock-filter-form__control"
         value={startDate}
         onChange={e => setStartDate(e.target.value)}
         type="date"
       />
       <input
+        className="stock-filter-form__control"
         value={endDate}
         onChange={e => setEndDate(e.target.value)}
         type="date"
       />
-      <button>filter</button>
+      <button className="stock-filter-form__control stock-filter-form__control--button">
+        Search
+      </button>
     </form>
   );
 }
