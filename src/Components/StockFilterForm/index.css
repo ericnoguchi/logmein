@@ -1,0 +1,14 @@
+.stock-filter-form {
+  height: 40px;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 800px;
+  margin: auto;
+}
+
+.stock-filter-form input,
+.stock-filter-form select {
+  flex: 1;
+  margin-right: 5px;
+}

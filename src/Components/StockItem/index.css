@@ -1,0 +1,10 @@
+.stock-item {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+.stock-item__item {
+  flex: 1;
+  margin-bottom: 5px;
+}

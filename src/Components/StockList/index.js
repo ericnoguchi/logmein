@@ -1,0 +1,18 @@
+import React, { useContext } from "react";
+import Context from "../../context";
+import StockItem from "../StockItem";
+import "./index.css";
+
+export function StockList() {
+  const { stocks } = useContext(Context);
+
+  return (
+    <div className="stock-list">
+      {stocks.map(stock => {
+        return <StockItem {...stock} key={stock.stockSymbol + stock.date} />;
+      })}
+    </div>
+  );
+}
+
+export default StockList;
