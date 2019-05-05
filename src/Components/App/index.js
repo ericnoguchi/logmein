@@ -3,11 +3,11 @@ import {
   getSocialMediaInfoMockEndPoint,
   getStocksMockEndPoint,
   getStockSymbolsMockEndPoint
-} from "./api";
-import "./App.css";
-import StockList from "./Components/StockList";
-import { Provider } from "./context";
-import StockFilterForm from "./Components/StockFilterForm";
+} from "../../Services/api";
+import "./index.css";
+import StockList from "../StockList";
+import { Provider } from "../../context";
+import StockFilterForm from "../StockFilterForm";
 
 const api = {
   getStocks: (startDate, endDate, filterStockSymbol, filterSocialMedia) => {

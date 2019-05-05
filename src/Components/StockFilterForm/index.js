@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Context from "../../context";
-import { dateToStr, strToToDate } from "../../utils";
+import { dateToStr, strToToDate } from "../../Services/utils";
 import Select from "../Select";
 import "./index.css";
 
