@@ -11,6 +11,9 @@ export function strToDate(str) {
 }
 
 export function dateToStr(date) {
+  if (typeof date === "string") {
+    return date;
+  }
   const month = date.getMonth() + 1;
   const day = date.getDate();
   return `${date.getFullYear()}-${month < 10 ? `0${month}` : month}-${
