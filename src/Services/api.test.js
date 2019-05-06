@@ -12,7 +12,7 @@ getSocialMediaInfoMockEndPoint.mockImplementation(
 getStocksMockEndPoint.mockImplementation(() => "resolveStocksMockEndPoint");
 
 describe("getSocialMediaInfo()", () => {
-  it("should return a promise which resolve data", () => {
+  it("should return a promise with resolved data", () => {
     return expect(getSocialMediaInfo()).resolves.toBe(
       "resolveSocialMediaInfoMockEndPoint"
     );
@@ -21,7 +21,7 @@ describe("getSocialMediaInfo()", () => {
 
 // Async/Await demo
 describe("getStocks()", () => {
-  it("should return a promise which resolve data for params", async () => {
+  it("should return a promise which resolved data for params", async () => {
     expect.assertions(2);
     const data = await getStocks(
       "startDate",

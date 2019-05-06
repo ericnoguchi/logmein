@@ -11,12 +11,12 @@ export function strToDate(str) {
 }
 
 export function dateToStr(date) {
-  if (typeof date === "string") {
-    return date;
+  if (date instanceof Date) {
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${date.getFullYear()}-${month < 10 ? `0${month}` : month}-${
+      day < 10 ? `0${day}` : day
+    }`;
   }
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  return `${date.getFullYear()}-${month < 10 ? `0${month}` : month}-${
-    day < 10 ? `0${day}` : day
-  }`;
+  return date;
 }

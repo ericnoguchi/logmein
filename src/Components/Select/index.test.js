@@ -34,7 +34,7 @@ describe("<Select /> rendering", () => {
   });
 
   // simulate event and spy fn demo
-  it("should should call props on change with value changes", () => {
+  it("should call props onChange when value changes", () => {
     let wrap = shallow(Component);
     wrap.find("select").simulate("change", "changedValue");
     expect(props.onChange).toHaveBeenCalledWith("changedValue");

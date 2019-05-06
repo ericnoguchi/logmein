@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import * as api from "../../Services/api";
+import { Provider } from "../../Services/context";
+import Header from "../Header";
+import StockFilterForm from "../StockFilterForm";
+import StockList from "../StockList";
 
 import "./index.css";
-import StockList from "../StockList";
-import { Provider } from "../../Services/context";
-import StockFilterForm from "../StockFilterForm";
-import Header from "../Header";
-import * as api from "../../Services/api";
 
 const initialEndDate = new Date();
 const initialStartDate = new Date();

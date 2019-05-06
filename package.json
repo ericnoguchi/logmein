@@ -19,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --verbose",
+    "coverage": "react-scripts test --env=jsdom --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,7 +38,6 @@
     ]
   },
   "devDependencies": {
-    "enzyme-to-json": "^3.3.5",
-    "prettier": "^1.17.0"
+    "enzyme-to-json": "^3.3.5"
   }
 }

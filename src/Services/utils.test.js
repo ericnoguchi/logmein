@@ -10,6 +10,10 @@ describe("dateToStr()", () => {
   it("should convert a date into a string with format yyyy-mm-dd", () => {
     expect(dateToStr(new Date(2019, 0, 1))).toEqual("2019-01-01");
   });
+
+  it("should should return input if it is not a Date object", () => {
+    expect(dateToStr("noneDateValue")).toEqual("noneDateValue");
+  });
 });
 
 describe("strToDate()", () => {
