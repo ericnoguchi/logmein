@@ -3,6 +3,7 @@ import {
   getStocksMockEndPoint,
   getStockSymbolsMockEndPoint
 } from "./backendMock";
+import { dateToStr } from "./utils";
 
 export function getStocks(
   startDate,
@@ -11,11 +12,12 @@ export function getStocks(
   filterSocialMedia
 ) {
   const params = JSON.stringify({
-    startDate,
-    endDate,
+    startDate: dateToStr(startDate),
+    endDate: dateToStr(endDate),
     filterStockSymbol,
     filterSocialMedia
   });
+
   return new Promise(resolve => {
     resolve(getStocksMockEndPoint(params));
   });
