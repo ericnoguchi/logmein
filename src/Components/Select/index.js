@@ -3,6 +3,7 @@ import React from "react";
 function Select(props) {
   return (
     <select
+      data-testid={props["data-testid"]}
       className={props.className}
       value={props.value}
       onChange={props.onChange}

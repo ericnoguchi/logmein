@@ -20,17 +20,13 @@ function StockFilterForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    getStocks(
-      strToDate(startDate),
-      strToDate(endDate),
-      stockSymbol,
-      socialMediaType
-    );
+    getStocks(startDate, endDate, stockSymbol, socialMediaType);
   }
 
   return (
     <form className="stock-filter-form" onSubmit={handleSubmit}>
       <Select
+        data-testid="stockSymbolSelect"
         className="stock-filter-form__control"
         collection={stockSymbols}
         valueProp="symbol"
@@ -40,6 +36,7 @@ function StockFilterForm() {
       />
 
       <Select
+        data-testid="socialMediaSelect"
         className="stock-filter-form__control"
         collection={socialMediaInfo}
         valueProp="id"
@@ -49,18 +46,23 @@ function StockFilterForm() {
       />
 
       <input
+        data-testid="startDateInput"
         className="stock-filter-form__control"
         value={startDate}
         onChange={e => setStartDate(e.target.value)}
         type="date"
       />
       <input
+        data-testid="endDateInput"
         className="stock-filter-form__control"
         value={endDate}
         onChange={e => setEndDate(e.target.value)}
         type="date"
       />
-      <button className="stock-filter-form__control stock-filter-form__control--button">
+      <button
+        data-testid="submitButton"
+        className="stock-filter-form__control stock-filter-form__control--button"
+      >
         Search
       </button>
     </form>
