@@ -1,6 +1,6 @@
-import Select from ".";
+import { shallow } from "enzyme";
 import React from "react";
-import ReactDOM from "react-dom";
+import Select from ".";
 
 describe("<Select /> rendering", () => {
   let props = {
@@ -21,9 +21,22 @@ describe("<Select /> rendering", () => {
     onChange: jest.fn()
   };
 
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<Select {...props} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+  let Component;
+
+  beforeEach(() => {
+    props.onChange.mockClear();
+    Component = <Select {...props} />;
+  });
+
+  // snapshot demo
+  it("should render to match snapshot", () => {
+    expect(shallow(Component)).toMatchSnapshot();
+  });
+
+  // simulate event and spy fn demo
+  it("should should call props on change with value changes", () => {
+    let wrap = shallow(Component);
+    wrap.find("select").simulate("change", "changedValue");
+    expect(props.onChange).toHaveBeenCalledWith("changedValue");
   });
 });
