@@ -4,7 +4,6 @@ import { Provider } from "../../Services/context";
 import Header from "../Header";
 import StockFilterForm from "../StockFilterForm";
 import StockList from "../StockList";
-
 import "./index.css";
 
 const initialEndDate = new Date();
@@ -48,10 +47,8 @@ function useSocialMediaData() {
 function useStockSymbolData() {
   let [stockSymbols, setStocksSymbols] = useState([]);
 
-  function getStockSymbols() {
-    api.getStockSymbols().then(stocksSymbols => {
-      setStocksSymbols(stocksSymbols);
-    });
+  async function getStockSymbols() {
+    setStocksSymbols(await api.getStockSymbols());
   }
 
   useEffect(() => {
@@ -61,12 +58,12 @@ function useStockSymbolData() {
   return { stockSymbols, setStocksSymbols, getStockSymbols };
 }
 
-function App() {
+function useStore() {
   const { stocks, getStocks } = useStockData(initialStartDate, initialEndDate);
   const { socialMediaInfo } = useSocialMediaData();
   const { stockSymbols } = useStockSymbolData();
 
-  const store = {
+  return {
     initialEndDate,
     initialStartDate,
     stocks,
@@ -74,6 +71,10 @@ function App() {
     socialMediaInfo,
     stockSymbols
   };
+}
+
+function App() {
+  const store = useStore();
 
   return (
     <Provider value={store}>

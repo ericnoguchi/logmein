@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Context from "../../Services/context";
-import { dateToStr, strToDate } from "../../Services/utils";
+import { dateToStr } from "../../Services/utils";
 import Select from "../Select";
 import "./index.css";
 
@@ -32,7 +32,7 @@ function StockFilterForm() {
         valueProp="symbol"
         titleProp="title"
         value={stockSymbol}
-        onChange={e => setStockSymbol(e.target.value)}
+        onChange={({ target }) => setStockSymbol(target.value)}
       />
 
       <Select
@@ -42,21 +42,21 @@ function StockFilterForm() {
         valueProp="id"
         titleProp="title"
         value={socialMediaType}
-        onChange={e => setSocialMediaType(e.target.value)}
+        onChange={({ target }) => setSocialMediaType(target.value)}
       />
 
       <input
         data-testid="startDateInput"
         className="stock-filter-form__control"
         value={startDate}
-        onChange={e => setStartDate(e.target.value)}
+        onChange={({ target }) => setStartDate(target.value)}
         type="date"
       />
       <input
         data-testid="endDateInput"
         className="stock-filter-form__control"
         value={endDate}
-        onChange={e => setEndDate(e.target.value)}
+        onChange={({ target }) => setEndDate(target.value)}
         type="date"
       />
       <button

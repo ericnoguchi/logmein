@@ -8,9 +8,9 @@ export function StockList() {
 
   return (
     <div className="stock-list">
-      {stocks.map(stock => {
-        return <StockItem {...stock} key={stock.stockSymbol + stock.date} />;
-      })}
+      {stocks.map(stock => (
+        <StockItem {...stock} key={stock.stockSymbol + stock.date} />
+      ))}
     </div>
   );
 }

@@ -11,13 +11,11 @@ function Select(props) {
       <option key="empty" value="">
         -- select --
       </option>
-      {props.collection.map(item => {
-        return (
-          <option key={item[props.valueProp]} value={item[props.valueProp]}>
-            {item[props.titleProp]}
-          </option>
-        );
-      })}
+      {props.collection.map(item => (
+        <option key={item[props.valueProp]} value={item[props.valueProp]}>
+          {item[props.titleProp]}
+        </option>
+      ))}
     </select>
   );
 }
