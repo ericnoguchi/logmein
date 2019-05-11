@@ -1,4 +1,4 @@
-import React, { useContext, useState, ChangeEvent } from "react";
+import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
 import Context from "../../Services/context";
 import { dateToStr } from "../../Services/utils";
 import Select from "../Select";
@@ -18,7 +18,7 @@ function StockFilterForm() {
   const [socialMediaType, setSocialMediaType] = useState("");
   const [stockSymbol, setStockSymbol] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     getStocks(startDate, endDate, stockSymbol, socialMediaType);
   }
