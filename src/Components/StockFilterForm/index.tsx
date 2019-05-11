@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, ChangeEvent } from "react";
 import Context from "../../Services/context";
 import { dateToStr } from "../../Services/utils";
 import Select from "../Select";
@@ -18,7 +18,7 @@ function StockFilterForm() {
   const [socialMediaType, setSocialMediaType] = useState("");
   const [stockSymbol, setStockSymbol] = useState("");
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     getStocks(startDate, endDate, stockSymbol, socialMediaType);
   }
@@ -32,7 +32,9 @@ function StockFilterForm() {
         valueProp="symbol"
         titleProp="title"
         value={stockSymbol}
-        onChange={({ target }) => setStockSymbol(target.value)}
+        onChange={({ target }: ChangeEvent<HTMLSelectElement>) =>
+          setStockSymbol(target.value)
+        }
       />
 
       <Select
@@ -42,7 +44,9 @@ function StockFilterForm() {
         valueProp="id"
         titleProp="title"
         value={socialMediaType}
-        onChange={({ target }) => setSocialMediaType(target.value)}
+        onChange={({ target }: ChangeEvent<HTMLSelectElement>) =>
+          setSocialMediaType(target.value)
+        }
       />
 
       <input

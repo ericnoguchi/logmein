@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-export function StockItem(props) {
+export function StockItem(props: any) {
   return (
     <div className="stock-item">
       <div className="stock-item__item">{props.stockSymbol}</div>
