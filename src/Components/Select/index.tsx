@@ -1,6 +1,6 @@
 import React from "react";
 
-function Select(props) {
+function Select(props: any) {
   return (
     <select
       data-testid={props["data-testid"]}
@@ -11,7 +11,7 @@ function Select(props) {
       <option key="empty" value="">
         -- select --
       </option>
-      {props.collection.map(item => (
+      {props.collection.map((item: any) => (
         <option key={item[props.valueProp]} value={item[props.valueProp]}>
           {item[props.titleProp]}
         </option>

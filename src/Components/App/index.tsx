@@ -10,10 +10,15 @@ const initialEndDate = new Date();
 const initialStartDate = new Date();
 initialStartDate.setDate(initialEndDate.getDate() - 10);
 
-function useStockData(startDate, endDate) {
+function useStockData(startDate: Date, endDate: Date) {
   let [stocks, setStocks] = useState([]);
 
-  function getStocks(startDate, endDate, filterStockSymbol, filterSocialMedia) {
+  function getStocks(
+    startDate: Date,
+    endDate: Date,
+    filterStockSymbol?: string,
+    filterSocialMedia?: string
+  ) {
     api
       .getStocks(startDate, endDate, filterStockSymbol, filterSocialMedia)
       .then(stocks => {
