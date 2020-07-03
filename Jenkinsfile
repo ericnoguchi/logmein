@@ -10,7 +10,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'rm -r /var/www/html/*'
-                sh 'cp ./build/* /var/www/html'
+                sh 'cp -R ./build/* /var/www/html'
             }
         }
     }
