@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { fireEvent, getByTestId, render } from "react-testing-library";
-import StockFilterForm from ".";
-import { Provider } from "../../Services/context";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { fireEvent, getByTestId, render } from '@testing-library/react';
+import StockFilterForm from '.';
+import { Provider } from '../../Services/context';
 
-describe("<StockFilterForm />", () => {
+describe('<StockFilterForm />', () => {
   let context;
 
   beforeEach(() => {
@@ -13,12 +13,12 @@ describe("<StockFilterForm />", () => {
       initialStartDate: new Date(2019, 0, 1),
       getStocks: jest.fn(),
       stockSymbols: [],
-      socialMediaInfo: []
+      socialMediaInfo: [],
     };
   });
 
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
     ReactDOM.render(
       <Provider value={context}>
         <StockFilterForm />
@@ -28,29 +28,29 @@ describe("<StockFilterForm />", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("should call getStocks with input values on submit", () => {
+  it('should call getStocks with input values on submit', () => {
     const { container } = render(
       <Provider value={context}>
         <StockFilterForm />
       </Provider>
     );
 
-    const stockSymbolSelect = getByTestId(container, "stockSymbolSelect");
-    const socialMediaSelect = getByTestId(container, "socialMediaSelect");
-    const startDateInput = getByTestId(container, "startDateInput");
-    const endDateInput = getByTestId(container, "endDateInput");
-    const submitButton = getByTestId(container, "submitButton");
+    const stockSymbolSelect = getByTestId(container, 'stockSymbolSelect');
+    const socialMediaSelect = getByTestId(container, 'socialMediaSelect');
+    const startDateInput = getByTestId(container, 'startDateInput');
+    const endDateInput = getByTestId(container, 'endDateInput');
+    const submitButton = getByTestId(container, 'submitButton');
 
     // TODO: need to see why fireEvent.change is not working with select elements
     fireEvent.change(stockSymbolSelect, {
-      target: { value: "new" }
+      target: { value: 'new' },
     });
     fireEvent.change(socialMediaSelect, {
-      target: { value: "new" }
+      target: { value: 'new' },
     });
 
-    const newStartDate = "2020-10-10";
-    const newEndDate = "2020-11-10";
+    const newStartDate = '2020-10-10';
+    const newEndDate = '2020-11-10';
 
     fireEvent.change(startDateInput, { target: { value: newStartDate } });
     fireEvent.change(endDateInput, { target: { value: newEndDate } });
@@ -60,8 +60,8 @@ describe("<StockFilterForm />", () => {
     expect(context.getStocks).toHaveBeenCalledWith(
       newStartDate,
       newEndDate,
-      "",
-      ""
+      '',
+      ''
     );
   });
 });
